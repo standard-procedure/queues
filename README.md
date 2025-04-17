@@ -1,24 +1,17 @@
-# README
+# Queues
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple copy of Pivotal Tracker
 
-Things you may want to cover:
+## Glossary
 
-* Ruby version
+- User - a person who uses the system 
+- Project - a collection of tasks for a particular purpose
+- Card - an individual task within a project
 
-* System dependencies
+## Principles
 
-* Configuration
+Cards are pieces of work that must be completed.  
 
-* Database creation
+They are either in the backlog, in which case they are awaiting being worked on, they are in progress, in QA, awaiting deployment or completed.  They can also be cancelled.  
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Each project has a "velocity" which is an estimate of how much work will get completed in the next iteration.  Each card has a complexity, which is then used, within the backlog, to attach a date to the card.  For example, if a project has a velocity of 4, and the backlog contains 4 "simple" cards, the estimate would state that the first two cards will be completed in the next iteration, with two cards completed in the following iteration (as "simple" has a value of 2).  The backlog can then be reordered so the impact of changes on delivery times can easily be seen.  
