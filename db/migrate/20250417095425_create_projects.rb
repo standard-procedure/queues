@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration[8.0]
       t.string :name, default: "", null: false
       t.integer :status, default: 0, null: false
       t.belongs_to :owner, foreign_key: {to_table: "users"}
+      t.integer :velocity, default: 10, null: false
       t.timestamps
     end
   end

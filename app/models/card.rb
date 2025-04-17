@@ -4,6 +4,7 @@ class Card < ApplicationRecord
   validates :title, presence: true
   normalizes :title, with: ->(t) { t.strip }
   enum :status, backlog: 0, in_progress: 10, in_qa: 20, ready_to_deploy: 30, completed: 100, cancelled: -1
+  enum :complexity, trivial: 1, simple: 2, complex: 4, requires_breakdown: 8
   has_rich_text :description
   positioned on: :project
 end

@@ -5,6 +5,7 @@ class CreateCards < ActiveRecord::Migration[8.0]
       t.string :title, default: "", null: false
       t.integer :position, null: false
       t.integer :status, default: 0, null: false
+      t.integer :complexity, default: 2, null: false
       t.timestamps
     end
 

@@ -13,6 +13,7 @@ Fabrik.db.configure do
     name { Faker::Marketing.unique.buzzwords }
     owner { users.create }
     status { "active" }
+    velocity { 10 }
   end
 
   with Card do
@@ -20,5 +21,6 @@ Fabrik.db.configure do
     title { Faker::Company.unique.bs }
     project { projects.create }
     status { "backlog" }
+    complexity { "simple" }
   end
 end

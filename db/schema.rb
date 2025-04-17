@@ -54,6 +54,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_100541) do
     t.string "title", default: "", null: false
     t.integer "position", null: false
     t.integer "status", default: 0, null: false
+    t.integer "complexity", default: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id", "status", "position"], name: "index_cards_on_project_id_and_status_and_position"
@@ -64,6 +65,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_100541) do
     t.string "name", default: "", null: false
     t.integer "status", default: 0, null: false
     t.integer "owner_id"
+    t.integer "velocity", default: 10, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_projects_on_owner_id"
