@@ -18,7 +18,7 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -32,7 +32,7 @@ gem "solid_cable"
 gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -52,3 +52,27 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+group :development, :test do
+  gem "rspec-rails"
+  gem "standard", ">= 1.4"
+  gem "guard"
+  gem "guard-bundler", require: false
+  gem "guard-rspec", require: false
+  gem "guard-standardrb", require: false
+  gem "guard-bundler-audit", require: false
+  gem "ruby-lsp"
+  gem "yaml-sort"
+  gem "standard_procedure_fabrik"
+end
+
+group :test do
+  gem "rspec-openapi"
+end
+gem "faker"
+gem "positioning"
+gem "alba"
+gem "kaminari"
+gem "cancancan"
+gem "rack-cors"
+gem "rswag-ui"

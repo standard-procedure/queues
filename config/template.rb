@@ -59,25 +59,6 @@ create_file "Guardfile" do
     guard "bundler_audit", run_on_start: true do
       watch("Gemfile.lock")
     end
-    
-    guard :shell do
-      watch %r{^app/views/(.+).html.erb$} do |m|
-        `bundle exec htmlbeautifier #{m[0]}`
-      end
-      watch %r{^app/components/(.+).html.erb$} do |m|
-        `bundle exec htmlbeautifier #{m[0]}`
-        `bundle exec erb_lint --autocorrect #{m[0]}`
-      end
-      watch %r{^config/locales/(.+).yml$} do |m|
-        `bundle exec yaml-sort -l -i "#{m[0]}"`
-      end
-      watch %r{^app/(.+).yml$} do |m|
-        `bundle exec yaml-sort -l -i "#{m[0]}"`
-      end
-      watch "config/icons.yml" do
-        `bundle exec yaml-sort -l -i "config/icons.yml"`
-      end
-    end
   GUARDFILE
 end
 
@@ -115,7 +96,6 @@ gem_group :development, :test do
   gem "guard-rspec", require: false
   gem "guard-standardrb", require: false
   gem "guard-bundler-audit", require: false
-  gem "guard-shell", require: false
   gem "ruby-lsp"
   gem "yaml-sort"
   gem "standard_procedure_fabrik"
@@ -127,7 +107,6 @@ end
 
 gsub_file "Gemfile", /# gem "bcrypt"/, "gem \"bcrypt\""
 gsub_file "Gemfile", /# gem "image_processing".*/, "gem \"image_processing\""
-gem "phlex-rails", ">= 2.0.0"
 gem "faker"
 gem "positioning"
 gem "alba"
@@ -144,7 +123,7 @@ initializer "alba.rb" do
 end
 
 after_bundle do
-  rails_command "importmap:install"
+  rails_command "javascript:install:bun"
   generate "rspec:install"
   generate "solid_cable:install"
   generate "solid_cache:install"
@@ -153,75 +132,6 @@ after_bundle do
   rails_command "stimulus:install"
   rails_command "active_storage:install"
   rails_command "action_text:install"
-  generate "phlex:install"
   generate "rswag:ui:install"
   gsub_file "config/initializers/rswag_ui.rb", /swagger_endpoint/, "openapi_endpoint"
-
-  create_file "app/components/slotted.rb" do
-    <<~PHLEX
-        # frozen_string_literal: true
-
-      class Components::Slotted < Components::Base
-        def before_template(&)
-          vanish(&)
-          super
-        end
-      end
-    PHLEX
-  end
-
-  create_file "app/components/layout.rb" do
-    <<~PHLEX
-      # frozen_string_literal: true
-      
-      class Components::Layout < Components::Slotted
-        include Phlex::Rails::Helpers::CSRFMetaTags
-        include Phlex::Rails::Helpers::CSPMetaTag
-        include Phlex::Rails::Helpers::StylesheetLinkTag
-        include Phlex::Rails::Helpers::JavascriptImportmapTags
-      
-        def initialize title: "Rails"
-          @title = title.to_s
-          @page_header = nil
-          @page_footer = nil
-        end
-      
-        def page_header(&contents) = @page_header = contents
-      
-        def page_footer(&contents) = @page_footer = contents
-      
-        def view_template(&)
-          doctype   
-          html do
-            head do
-              title { @title }
-              meta name: "viewport", content: "width=device-width,initial-scale=1"
-              meta name: "apple-mobile-web-app-capable", content: "yes"
-              meta name: "mobile-web-app-capable", content: "yes"
-              meta name: "view-transition", content: "same-origin"
-              meta name: "turbo-refresh-method", content: "morph"
-              meta name: "turbo-refresh-scroll", content: "preserve"
-              csrf_meta_tags
-              csp_meta_tag
-              link rel: "manifest", href: pwa_manifest_path(format: :json)
-              link rel: "icon", href: "/icon.png", type: "image/png"
-              link rel: "icon", href: "/icon.svg", type: "image/svg+xml"
-              link rel: "apple-touch-icon", href: "/icon.png"
-              link rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-              stylesheet_link_tag :app, "data-turbo-track": "reload"
-              javascript_importmap_tags
-            end
-      
-            body do
-              @page_header&.call
-              main do
-                yield if block_given?
-              end
-              @page_footer&.call
-            end
-          end
-        end
-      end
-    PHLEX
-  end
 end

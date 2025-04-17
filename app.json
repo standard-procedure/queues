@@ -1,0 +1,21 @@
+ {
+  "name": "App",
+  "description": "Rails app",
+  "keywords": [],
+  "scripts": {
+    "dokku": {}
+  },
+  "healthchecks": {
+    "web": [
+      {
+        "type": "startup",
+        "name": "health check",
+        "path": "/up",
+        "attempts": 10,
+        "initialDelay": 10,
+        "timeout": 10
+      }
+    ]
+  },
+  "cron": []
+}

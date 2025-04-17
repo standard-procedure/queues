@@ -7,12 +7,21 @@
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
-  "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {},
+  "features": {"ghcr.io/michidk/devcontainers-features/bun:1": {},
+
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "installDirectlyFromGitHubRelease": true,
+      "version": "latest"
+    },
     "ghcr.io/rails/devcontainer/features/activestorage": {},
     "ghcr.io/rails/devcontainer/features/sqlite3": {},
-    "ghcr.io/roul/devcontainer-features/mise-bun:1": {},
-    "ghcr.io/roul/devcontainer-features/mise-node:1": {}
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGypDependencies": true,
+      "installYarnUsingApt": true,
+      "version": "lts",
+      "pnpmVersion": "latest",
+      "nvmVersion": "latest"
+    }
   },
 
   "containerEnv": {
@@ -21,7 +30,23 @@
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [3000],
+  "forwardPorts": [3000],"customizations": {
+  "vscode": {
+    "extensions": [
+      "Shopify.ruby-extensions-pack",
+      "testdouble.vscode-standard-ruby",
+      "manuelpuyol.erb-linter",
+      "Shopify.ruby-lsp",
+      "aki77.rails-db-schema",
+      "miguel-savignano.ruby-symbols",
+      "sibiraj-s.vscode-scss-formatter",
+      "Thadeu.vscode-run-rspec-file",
+      "Cronos87.yaml-symbols",
+      "aliariff.vscode-erb-beautify"
+    ]
+  }
+},
+
 
   // Configure tool-specific properties.
   // "customizations": {},

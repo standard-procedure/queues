@@ -24,6 +24,24 @@
   dependencies:
     tslib "^2.4.0"
 
+"@hotwired/stimulus@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.2.2.tgz#071aab59c600fed95b97939e605ff261a4251608"
+  integrity sha512-eGeIqNOQpXoPAIP7tC1+1Yc1yl1xnwYqg+3mzqxyrbE5pg5YFBZcA6YoTiByJB6DKAEsiWtl6tjTJS4IYtbB7A==
+
+"@hotwired/turbo-rails@^8.0.13":
+  version "8.0.13"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.13.tgz#7016651f7144053992ce5096bb95495f8faa5854"
+  integrity sha512-6SCnnOSzhtaJ0pNkAjncZxjtKsK3sP/vPEkCnTXBXSHkr+vF7DTZkOlwjhms1DbbQNTsjCsBoKvzSMbh/omSCQ==
+  dependencies:
+    "@hotwired/turbo" "^8.0.13"
+    "@rails/actioncable" "^7.0"
+
+"@hotwired/turbo@^8.0.13":
+  version "8.0.13"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.13.tgz#ab35fda9d358432c8a872a833844b38cccb8c25b"
+  integrity sha512-M7qXUqcGab6G5PKOiwhgbByTtrPgKPFCTMNQ52QhzUEXEqmp0/ApEguUesh/FPiUjrmFec+3lq98KsWnYY2C7g==
+
 "@napi-rs/wasm-runtime@^0.2.8":
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-0.2.9.tgz#7278122cf94f3b36d8170a8eee7d85356dfa6a96"
@@ -121,6 +139,25 @@
     "@parcel/watcher-win32-arm64" "2.5.1"
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
+
+"@rails/actioncable@^7.0":
+  version "7.2.201"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.2.201.tgz#bfb3da01b3e2462f5a18f372c52dedd7de76037f"
+  integrity sha512-wsTdWoZ5EfG5k3t7ORdyQF0ZmDEgN4aVPCanHAiNEwCROqibSZMXXmCbH7IDJUVri4FOeAVwwbPINI7HVHPKBw==
+
+"@rails/actiontext@^8.0.200":
+  version "8.0.200"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-8.0.200.tgz#b0ed8ba50ec31dd8fcc7a8885403c58b2b4f378d"
+  integrity sha512-p9SVulDmWKMChQpNYFrRBGa2aIfMSw8vyCRW9bwHzihFB8eAZ1NE6ak88nr037gwurbCBv4UVdnwndtuh2piAA==
+  dependencies:
+    "@rails/activestorage" ">= 8.0.0-alpha"
+
+"@rails/activestorage@>= 8.0.0-alpha":
+  version "8.0.200"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-8.0.200.tgz#147c088e2b4167d6d49292431bdbdf10b118d5bd"
+  integrity sha512-V7GnZXsAMPDWVOBv4/XpHwj5sOw5bWjidWCuUbK3Zx1xt2pOfFaeJDUG7fEWb1MwP4aW1oVVlGkJBdXVyvru0A==
+  dependencies:
+    spark-md5 "^3.0.1"
 
 "@tailwindcss/cli@^4.1.4":
   version "4.1.4"
@@ -237,6 +274,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@types/trusted-types@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.7.tgz#baccb07a970b91707df3a3e8ba6896c57ead2d11"
+  integrity sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==
+
 braces@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/braces/-/braces-3.0.3.tgz#490332f40919452272d55a8480adc0c441358789"
@@ -253,6 +295,13 @@ detect-libc@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.3.tgz#f0cd503b40f9939b894697d19ad50895e30cf700"
   integrity sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==
+
+dompurify@^3.2.3:
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.2.5.tgz#11b108656a5fb72b24d916df17a1421663d7129c"
+  integrity sha512-mLPd29uoRe9HpvwP2TxClGQBzGXeEC/we/q+bFlmPPmj2p2Ugl3r6ATu/UU1v77DXNcehiBg9zsr1dREyA/dJQ==
+  optionalDependencies:
+    "@types/trusted-types" "^2.0.7"
 
 enhanced-resolve@^5.18.1:
   version "5.18.1"
@@ -392,6 +441,11 @@ picomatch@^2.3.1:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
+spark-md5@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
+  integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
+
 tailwindcss@4.1.4, tailwindcss@^4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.1.4.tgz#27b3c910c6f1a47f4540451f3faf7cdd6d977a69"
@@ -408,6 +462,13 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+trix@^2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-2.1.13.tgz#499a5f243eb05d44c92f00ee8fdda71f2ec9fad1"
+  integrity sha512-LTwj6HPo/CDL6KSclIwn41J+EwcqXHiUE43BBbg8Q/whaZcoUaODypHYoGIDd3M32KVXw98M5vC6zNCod9KB2w==
+  dependencies:
+    dompurify "^3.2.3"
 
 tslib@^2.4.0, tslib@^2.8.0:
   version "2.8.1"
