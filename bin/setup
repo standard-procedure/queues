@@ -18,9 +18,7 @@ FileUtils.chdir APP_ROOT do
   # Install JavaScript dependencies
   system!("bun install")
   # Install JavaScript dependencies
-  system!("bun install")
-  puts "\n== To install Claude use =="
-  puts "bun add -g @anthropic-ai/claude-code && export PATH=\"/home/vscode/.bun/bin:$PATH\""
+  system!("npm install -g @anthropic-ai/claude-code")
 
   # puts "\n== Copying sample files =="
   # unless File.exist?("config/database.yml")
