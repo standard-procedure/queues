@@ -5,4 +5,6 @@ class User < ApplicationRecord
   normalizes :email_address, with: ->(e) { e.strip.downcase }
   normalizes :first_name, with: ->(n) { n.strip }
   normalizes :last_name, with: ->(n) { n.strip }
+
+  has_many :projects, inverse_of: :owner
 end
