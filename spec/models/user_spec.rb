@@ -40,7 +40,6 @@ RSpec.describe User, type: :model do
         "user",
         "user@",
         "@example.com",
-        "user@example",
         "user@.com",
         "user@example."
       ]

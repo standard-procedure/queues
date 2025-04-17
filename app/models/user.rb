@@ -6,8 +6,7 @@ class User < ApplicationRecord
   normalizes :first_name, with: ->(n) { n.strip }
   normalizes :last_name, with: ->(n) { n.strip }
 
-  EMAIL_REGEX = /\A[^@\s]+@([^@\s]+\.)+[^@\s.]+\z/
-  validates :email_address, presence: true, format: {with: EMAIL_REGEX}
+  validates :email_address, presence: true, format: {with: URI::MailTo::EMAIL_REGEXP}
 
   has_many :projects, inverse_of: :owner
 end
