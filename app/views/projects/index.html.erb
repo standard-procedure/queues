@@ -1,0 +1,7 @@
+<ul class="border border-gray-200 rounded-lg">
+  <% @projects.each do |project| %>
+    <li class="m-4 rounded-lg border border-green-200 bg-gray-100 hover:bg-gray-50 text-green-800 px-8 py-2">
+      <%= link_to project %>
+    </li>
+  <% end %>
+</ul>
