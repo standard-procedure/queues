@@ -10,7 +10,15 @@ Fabrik.db.configure do
 
   with Project do
     unique :name
-    name { Faker::Marketing.buzzwords }
+    name { Faker::Marketing.unique.buzzwords }
     owner { users.create }
+    status { "active" }
+  end
+
+  with Card do
+    unique :project, :title
+    title { Faker::Company.unique.bs }
+    project { projects.create }
+    status { "backlog" }
   end
 end

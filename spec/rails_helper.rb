@@ -71,7 +71,7 @@ RSpec.configure do |config|
     Faker::Company.unique.clear
     Faker::Name.unique.clear
     Faker::Internet.unique.clear
-    Faker::IndustrySegments.unique.clear
+    Faker::Marketing.unique.clear
   end
 
   # arbitrary gems may also be filtered via:
