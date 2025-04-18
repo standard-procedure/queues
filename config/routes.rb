@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "projects#index"
-  resources :projects
+  resources :projects do
+    resources :cards, only: [:new, :create]
+  end
 
   resource :session
   resources :passwords, param: :token

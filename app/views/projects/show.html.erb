@@ -3,4 +3,34 @@
     <h1 class="text-lg text-green-800"><%= @project %></h1>
     <%= @project.description %>
   </section>
+
+  <section class="mt-8">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg font-semibold">Backlog</h2>
+      <%= link_to new_project_card_path(@project), class: "inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="-ml-0.5 mr-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        Add Card
+      <% end %>
+    </div>
+    
+    <% if @backlog_cards.any? %>
+      <ul class="space-y-2">
+        <% @backlog_cards.each do |card| %>
+          <li id="<%= dom_id(card) %>" class="p-3 border border-gray-200 rounded hover:bg-gray-50">
+            <h3 class="font-medium"><%= card.title %></h3>
+            <div class="flex items-center gap-2 text-sm text-gray-500 mt-1">
+              <span class="inline-flex items-center rounded-full bg-blue-100 px-2 py-1 text-xs">
+                <%= card.complexity.humanize %>
+              </span>
+              <span class="text-xs">Position: <%= card.position %></span>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="text-gray-500">There are no cards in the backlog.</p>
+    <% end %>
+  </section>
 </article>

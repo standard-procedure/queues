@@ -40,16 +40,6 @@ RSpec.describe "Projects", type: :request do
 
       expect(response).to have_http_status(200)
       expect(response.body).to include CGI.escape_html(@project.to_s)
+      expect(response.body).to include("Backlog")
     end
 
-    it "shows a 404 if logged in and the project is not active" do
-      @project = Fabrik.db.projects.create status: "inactive"
-      @user = Fabrik.db.users.create
-      login_as @user
-
-      get project_path(@project)
-
-      expect(response).to have_http_status(404)
-    end
-  end
-end

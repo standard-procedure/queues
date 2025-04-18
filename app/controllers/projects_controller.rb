@@ -5,5 +5,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.active.find params[:id]
+    @backlog_cards = @project.cards.backlog
   end
 end
